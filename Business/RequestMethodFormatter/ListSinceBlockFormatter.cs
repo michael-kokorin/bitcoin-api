@@ -14,17 +14,20 @@ namespace BitcoinApi.Business.RequestMethodFormatter
 
         public JArray Validate(Dictionary<string, string> parameters)
         {
-            if(!parameters.TryGetValue("blockhash", out var blockHash))
+            if(parameters.TryGetValue("blockhash", out var blockHash))
             {
-                throw new InvalidOperationException("Blockhash parameter is not provided");
+                if(!_validator.IsMatch(blockHash))
+                {
+                    throw new InvalidOperationException("Blockhash parameter has invalid format");
+                }
             }
 
-            if(!_validator.IsMatch(blockHash))
+            var result = new JArray();
+            if(!string.IsNullOrWhiteSpace(blockHash))
             {
-                throw new InvalidOperationException("Blockhash parameter has invalid format");
+                result.Add(blockHash);
             }
 
-            var result = new JArray {blockHash};
             return result;
         }
     }

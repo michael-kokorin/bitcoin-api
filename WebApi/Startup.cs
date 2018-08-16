@@ -50,6 +50,7 @@ namespace BitcoinApi.WebApi
                     var job = Container.Current.Resolve<IWalletInfoUpdateJob>();
                     job.DoJob();
                 })
+                .NonReentrant()
                 .ToRunEvery(5)
                 .Seconds();
             JobManager.Initialize(registry);

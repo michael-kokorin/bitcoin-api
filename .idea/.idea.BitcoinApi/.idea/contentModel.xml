@@ -6,14 +6,16 @@
       <e p="BitcoinApi.sln" t="IncludeFlat" />
       <e p="Business" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="BitcoinApiProvider.cs" t="Include" />
         <e p="Business.csproj" t="IncludeRecursive" />
         <e p="BusinessModule.cs" t="Include" />
-        <e p="IBitcoinApiProvider.cs" t="Include" />
-        <e p="Income.cs" t="Include" />
-        <e p="IRequestExecutor.cs" t="Include" />
         <e p="IWalletInfoUpdateJob.cs" t="Include" />
-        <e p="ListTransactionsResult.cs" t="Include" />
+        <e p="IWalletService.cs" t="Include" />
+        <e p="Models" t="Include">
+          <e p="Income.cs" t="Include" />
+          <e p="ListTransactionsResult.cs" t="Include" />
+          <e p="Transaction.cs" t="Include" />
+          <e p="Wallet.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">
@@ -21,16 +23,20 @@
             </e>
           </e>
         </e>
-        <e p="RequestExecutor.cs" t="Include" />
+        <e p="Providers" t="Include">
+          <e p="BitcoinApiProvider.cs" t="Include" />
+          <e p="IBitcoinApiProvider.cs" t="Include" />
+          <e p="IRequestExecutor.cs" t="Include" />
+          <e p="RequestExecutor.cs" t="Include" />
+        </e>
         <e p="RequestMethodFormatter" t="Include">
           <e p="IRequestMethodFormatter.cs" t="Include" />
           <e p="ListReceivedByAddressFormatter.cs" t="Include" />
           <e p="ListSinceBlockFormatter.cs" t="Include" />
           <e p="SendToAddressFormatter.cs" t="Include" />
         </e>
-        <e p="Transaction.cs" t="Include" />
-        <e p="Wallet.cs" t="Include" />
         <e p="WalletInfoUpdateJob.cs" t="Include" />
+        <e p="WalletService.cs" t="Include" />
       </e>
       <e p="Data" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
@@ -45,6 +51,8 @@
             </e>
           </e>
         </e>
+        <e p="TransactionEntity.cs" t="Include" />
+        <e p="WalletEntity.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="shared" t="IncludeRecursive">

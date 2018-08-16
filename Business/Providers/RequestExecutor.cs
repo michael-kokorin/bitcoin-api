@@ -11,7 +11,7 @@ using BitcoinApi.Shared;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace BitcoinApi.Business
+namespace BitcoinApi.Business.Providers
 {
     internal sealed class RequestExecutor: IRequestExecutor
     {
@@ -71,6 +71,12 @@ namespace BitcoinApi.Business
                 {
                     using(var stream = webResponse.GetResponseStream())
                     {
+                        if(stream == null)
+                        {
+                            // ReSharper disable once NotResolvedInText
+                            throw new ArgumentNullException("stream");
+                        }
+
                         using(var reader = new StreamReader(stream))
                         {
                             var result = reader.ReadToEnd();

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace BitcoinApi.Business
+namespace BitcoinApi.Business.Models
 {
     /*
      * "account": "Test1",
@@ -36,6 +36,9 @@ namespace BitcoinApi.Business
 
         [JsonProperty(PropertyName = "label")]
         public string Label { get; set; }
+
+        [JsonProperty(PropertyName = "txtid")]
+        public string TransactionId { get; set; }
 
         [JsonProperty(PropertyName = "confirmations")]
         public int Confirmations { get; set; }

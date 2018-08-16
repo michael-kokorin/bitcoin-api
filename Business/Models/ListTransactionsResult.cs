@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace BitcoinApi.Business
+namespace BitcoinApi.Business.Models
 {
     public sealed class ListTransactionsResult
     {

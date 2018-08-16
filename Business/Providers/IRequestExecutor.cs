@@ -2,7 +2,7 @@
 
 using JetBrains.Annotations;
 
-namespace BitcoinApi.Business
+namespace BitcoinApi.Business.Providers
 {
     public interface IRequestExecutor
     {

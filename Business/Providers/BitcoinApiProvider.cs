@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Globalization;
 
+using BitcoinApi.Business.Models;
 using BitcoinApi.Shared;
 
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-namespace BitcoinApi.Business
+namespace BitcoinApi.Business.Providers
 {
     internal sealed class BitcoinApiProvider: IBitcoinApiProvider
     {
@@ -49,9 +51,16 @@ namespace BitcoinApi.Business
 
         public ListTransactionsResult ListTransactions(string sinceBlockHash)
         {
+            var parameters = new Dictionary<string, string>();
+            if(!string.IsNullOrWhiteSpace(sinceBlockHash))
+            {
+                parameters.Add("blockhash", sinceBlockHash);
+            }
+
             var resultText =
-                _requestExecutor.Execute("listsinceblock", new Dictionary<string, string> {{"blockhash", sinceBlockHash}});
-            var result = JsonConvert.DeserializeObject<ListTransactionsResult>(resultText);
+                _requestExecutor.Execute("listsinceblock", parameters);
+            var resultValue = JObject.Parse(resultText);
+            var result = JsonConvert.DeserializeObject<ListTransactionsResult>(resultValue["result"].ToString());
             return result;
         }
     }

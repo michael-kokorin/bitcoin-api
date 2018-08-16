@@ -1,4 +1,8 @@
-﻿using BitcoinApi.Business;
+﻿using System;
+using System.Linq;
+
+using BitcoinApi.Business;
+using BitcoinApi.Business.Models;
 using BitcoinApi.Shared;
 
 using JetBrains.Annotations;
@@ -11,18 +15,27 @@ namespace BitcoinApi.WebApi.Controllers
     [ApiController]
     public sealed class ValuesController: ControllerBase
     {
-        [NotNull]
-        [HttpPost("sendbtc")]
-        public ActionResult<OperationResult> SendBtc(string address, decimal amount)
+        private readonly IWalletService _walletService;
+
+        public ValuesController(IWalletService walletService)
         {
-            return new OperationResult();
+            _walletService = walletService;
         }
 
         [NotNull]
-        [HttpGet("getlast")]
-        public ActionResult<Income[]> GetLast()
+        [HttpPost("sendbtc")]
+        public ActionResult<OperationResult> SendBtc([NotNull] string address, decimal amount)
         {
-            return new Income[0];
+            var result = _walletService.SendBtc(address, amount);
+            return result;
+        }
+
+        [NotNull]
+        [HttpGet("getlast/{timestamp}")]
+        public ActionResult<Income[]> GetLast(int timestamp)
+        {
+            var transactions = _walletService.GetLastTransactions(timestamp);
+            return transactions;
         }
     }
 }

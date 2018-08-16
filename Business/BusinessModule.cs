@@ -1,5 +1,6 @@
 ﻿using Autofac;
 
+using BitcoinApi.Business.Providers;
 using BitcoinApi.Business.RequestMethodFormatter;
 
 namespace BitcoinApi.Business
@@ -14,6 +15,7 @@ namespace BitcoinApi.Business
             builder.RegisterType<SendToAddressFormatter>().As<IRequestMethodFormatter>().SingleInstance();
             builder.RegisterType<ListReceivedByAddressFormatter>().As<IRequestMethodFormatter>().SingleInstance();
             builder.RegisterType<ListSinceBlockFormatter>().As<IRequestMethodFormatter>().SingleInstance();
+            builder.RegisterType<WalletService>().As<IWalletService>().InstancePerDependency();
         }
     }
 }
