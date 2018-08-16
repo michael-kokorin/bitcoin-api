@@ -31,8 +31,8 @@ namespace BitcoinApi.WebApi.Controllers
         }
 
         [NotNull]
-        [HttpGet("getlast/{timestamp}")]
-        public ActionResult<Income[]> GetLast(int timestamp)
+        [HttpGet("getlast")]
+        public ActionResult<Income[]> GetLast(int? timestamp)
         {
             var transactions = _walletService.GetLastTransactions(timestamp);
             return transactions;

@@ -66,7 +66,7 @@ namespace BitcoinApi.Business
 
         private void UpdateTransactions()
         {
-            var requiresUpdatingTransactions = _dbContext.Transactions.Where(_ => _.Category == "received")
+            var requiresUpdatingTransactions = _dbContext.Transactions.Where(_ => _.Category == "receive")
                 .Where(_ => _.Confirmations < 6)
                 .ToDictionary(_ => _.TransactionId, _ => _);
             var lastReceivedTransation = _dbContext.Transactions.OrderByDescending(_ => _.Time).FirstOrDefault();

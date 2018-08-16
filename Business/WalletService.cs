@@ -34,10 +34,15 @@ namespace BitcoinApi.Business
             return _bitcoinApiProvider.SendBtc(address, amount);
         }
 
-        public Income[] GetLastTransactions(int timestamp)
+        public Income[] GetLastTransactions(int? timestamp)
         {
-            var result = _dbContext.Transactions.Where(_ => _.Category == "received")
-                .Where(_ => timestamp < _.TimeReceived || _.Confirmations < 3)
+            var query = _dbContext.Transactions.Where(_ => _.Category == "receive");
+            if(timestamp.HasValue)
+            {
+                query = query.Where(_ => timestamp < _.TimeReceived || _.Confirmations < 3);
+            }
+
+            var result = query
                 .Select(_ => new Income
                 {
                     Address = _.Address,

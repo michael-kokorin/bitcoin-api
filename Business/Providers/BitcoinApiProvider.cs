@@ -22,7 +22,8 @@ namespace BitcoinApi.Business.Providers
         public Wallet[] GetWallets()
         {
             var resultText = _requestExecutor.Execute("listreceivedbyaddress", new Dictionary<string, string>());
-            var result = JsonConvert.DeserializeObject<Wallet[]>(resultText);
+            var resultValue = JObject.Parse(resultText);
+            var result = JsonConvert.DeserializeObject<Wallet[]>(resultValue["result"].ToString());
             return result;
         }
 
@@ -36,7 +37,7 @@ namespace BitcoinApi.Business.Providers
 
             try
             {
-                var result = _requestExecutor.Execute("listreceivedbyaddress", parameters);
+                var result = _requestExecutor.Execute("sendtoaddress", parameters);
                 return new OperationResult<string>
                 {
                     Success = true,

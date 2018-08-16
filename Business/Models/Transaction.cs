@@ -37,7 +37,7 @@ namespace BitcoinApi.Business.Models
         [JsonProperty(PropertyName = "label")]
         public string Label { get; set; }
 
-        [JsonProperty(PropertyName = "txtid")]
+        [JsonProperty(PropertyName = "txid")]
         public string TransactionId { get; set; }
 
         [JsonProperty(PropertyName = "confirmations")]

@@ -10,7 +10,7 @@ namespace BitcoinApi.Business.RequestMethodFormatter
 
         public JArray Validate(Dictionary<string, string> parameters)
         {
-            var result = new JArray {"0", "true"};
+            var result = new JArray {0, true};
             return result;
         }
     }

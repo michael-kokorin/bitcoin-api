@@ -39,11 +39,18 @@
         <e p="WalletService.cs" t="Include" />
       </e>
       <e p="Data" t="IncludeRecursive">
+        <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="BitcoinApiDbContext.cs" t="Include" />
         <e p="Data.csproj" t="IncludeRecursive" />
         <e p="DataModule.cs" t="Include" />
+        <e p="DesignTimeDbContextBuilder.cs" t="Include" />
         <e p="IDbContext.cs" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="20180816064653_InitDb.cs" t="Include" />
+          <e p="20180816064653_InitDb.Designer.cs" t="Include" />
+          <e p="BitcoinApiDbContextModelSnapshot.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">

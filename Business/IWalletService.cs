@@ -12,6 +12,6 @@ namespace BitcoinApi.Business
 
         [NotNull]
         [ItemNotNull]
-        Income[] GetLastTransactions(int timestamp);
+        Income[] GetLastTransactions(int? timestamp);
     }
 }
