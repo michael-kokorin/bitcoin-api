@@ -6,7 +6,14 @@
       <e p="BitcoinApi.sln" t="IncludeFlat" />
       <e p="Business" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="BitcoinApiProvider.cs" t="Include" />
         <e p="Business.csproj" t="IncludeRecursive" />
+        <e p="BusinessModule.cs" t="Include" />
+        <e p="IBitcoinApiProvider.cs" t="Include" />
+        <e p="Income.cs" t="Include" />
+        <e p="IRequestExecutor.cs" t="Include" />
+        <e p="IWalletInfoUpdateJob.cs" t="Include" />
+        <e p="ListTransactionsResult.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">
@@ -14,10 +21,23 @@
             </e>
           </e>
         </e>
+        <e p="RequestExecutor.cs" t="Include" />
+        <e p="RequestMethodFormatter" t="Include">
+          <e p="IRequestMethodFormatter.cs" t="Include" />
+          <e p="ListReceivedByAddressFormatter.cs" t="Include" />
+          <e p="ListSinceBlockFormatter.cs" t="Include" />
+          <e p="SendToAddressFormatter.cs" t="Include" />
+        </e>
+        <e p="Transaction.cs" t="Include" />
+        <e p="Wallet.cs" t="Include" />
+        <e p="WalletInfoUpdateJob.cs" t="Include" />
       </e>
       <e p="Data" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="BitcoinApiDbContext.cs" t="Include" />
         <e p="Data.csproj" t="IncludeRecursive" />
+        <e p="DataModule.cs" t="Include" />
+        <e p="IDbContext.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">
@@ -27,12 +47,27 @@
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="shared" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Container.cs" t="Include" />
+        <e p="IConfigurationProvider.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.1" t="Include">
+              <e p="Shared.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="OperationResult.cs" t="Include" />
+        <e p="OperationResult{T}.cs" t="Include" />
+        <e p="Shared.csproj" t="IncludeRecursive" />
+      </e>
       <e p="WebApi" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="ValuesController.cs" t="Include" />
+          <e p="BitcoinApiController.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -45,8 +80,12 @@
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
+        <e p="Providers" t="Include">
+          <e p="ConfigurationProvider.cs" t="Include" />
+        </e>
         <e p="Startup.cs" t="Include" />
         <e p="WebApi.csproj" t="IncludeRecursive" />
+        <e p="WebApiModule.cs" t="Include" />
         <e p="wwwroot" t="Include" />
       </e>
     </e>

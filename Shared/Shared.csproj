@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>BitcoinApi.Data</AssemblyName>
-    <RootNamespace>BitcoinApi.Data</RootNamespace>
+    <AssemblyName>BitcoinApi.Shared</AssemblyName>
+    <RootNamespace>BitcoinApi.Shared</RootNamespace>
     <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -12,11 +12,5 @@
     <PackageReference Include="JetBrains.Annotations">
       <Version>2018.2.1</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer">
-      <Version>2.1.1</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 </Project>
